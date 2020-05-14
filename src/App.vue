@@ -51,7 +51,7 @@
   }
 
   .header {
-    background-color: #409EFF;
+    background-color: #3ac26ac9;
     color: #fff;
     line-height: 60px;
   }

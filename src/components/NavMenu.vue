@@ -2,43 +2,28 @@
   <div>
     <el-row class="tac">
       <el-col :span="24">
+        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+          <el-radio-button :label="false">展开</el-radio-button>
+          <el-radio-button :label="true">收起</el-radio-button>
+        </el-radio-group>
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
+          :collapse="isCollapse"
           unique-opened
           router
           active-text-color="#ffd04b">
           <el-submenu v-for="item in menu" :index="item.id">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i :class=item.icon></i>
               <span>{{item.name}}</span>
             </template>
             <el-menu-item-group v-for="subItem in item.sub">
               <el-menu-item :index="subItem.componentName">{{subItem.name}}</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <!--<el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>点滴</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="2">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span slot="title">日记</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>-->
         </el-menu>
       </el-col>
     </el-row>
@@ -51,16 +36,12 @@
   export default {
     name: "",                      // 名称
     props: {                            // 接收父组件的数据
-
     },
     data() {
       return {
-        menu: menu
-
-
+        menu: menu,
+        isCollapse: true,       // 菜单折叠、展开
       }
-
-
     },
     computed: {                         // 计算属性
       "val": function () {
