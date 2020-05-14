@@ -61,7 +61,8 @@
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
-  import '@/assets/styles/fonts/style.css'      // 笑脸资源文件
+  import '@/assets/styles/fonts/style.css'
+  import dateUtil from "../../../utils/date-util";      // 笑脸资源文件
 
 
   export default {
@@ -74,7 +75,7 @@
          * 日记表单数据
          */
         diaryForm: {
-          diaryTime: new Date().getTime(),   // 日期
+          diaryTime: dateUtil.getCurrentTime('yyyy-mm-dd HH:mm'),   // new Date().getTime(),   // 日期
           mood: 0,    // 心情
           title:'',         // 标题
           richContent:'',     // 内容

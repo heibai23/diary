@@ -132,7 +132,7 @@
         this.$api.homeApi.downloadFileInfo(JSON.stringify(param)).then(response => {
           console.log("[Method:downloadFileInfo][data:res]", response);
 
-          let data = response.data;istL
+          let data = response.data;
           if (!data) {
             return
           }
@@ -140,14 +140,14 @@
           // let fileName = contentDisposition.substring(contentDisposition.indexOf('=') + 1);
           let fileName = "23.png";
           console.log('fileName=' + fileName);
-          let url = window.URL.createObjectURL(new Blob([data]))
-          let a = document.createElement('a')
-          a.style.display = 'none'
-          a.href = url
-          a.setAttribute('download', fileName)
-          document.body.appendChild(a)
+          let url = window.URL.createObjectURL(new Blob([data]));
+          let a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.setAttribute('download', fileName);
+          document.body.appendChild(a);
           //点击下载
-          a.click()
+          a.click();
           // 下载完成移除元素
           document.body.removeChild(a);
           // 释放掉blob对象
